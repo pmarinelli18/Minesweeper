@@ -5,20 +5,19 @@
 
 Textures::Textures()
 {
+	textures = std::map<std::string, sf::Texture>();
 	sf::Texture debugT;
 	debugT.loadFromFile("images/debug.png");
-	sf::Texture digitsT;
-	digitsT.loadFromFile("images/digits.png");
 	sf::Texture faceHappyT;
-	faceHappyT.loadFromFile("images/face_happy.png");
+	faceHappyT.loadFromFile("images/face_happy.png");//"images/face_happy3.png"
 	sf::Texture faceLoseT;
-	faceLoseT.loadFromFile("images/face_lose.png");
+	faceLoseT.loadFromFile("images/face_lose.png");//"images/face_lose3.png"
 	sf::Texture faceWinT;
-	faceWinT.loadFromFile("images/face_win.png");
+	faceWinT.loadFromFile("images/face_win.png");//"images/face_win3.png"
 	sf::Texture flagT;
-	flagT.loadFromFile("images/flag.png");
+	flagT.loadFromFile("images/flag.png");//images/flag2.png
 	sf::Texture mineT;
-	mineT.loadFromFile("images/mine.png");
+	mineT.loadFromFile("images/mine.png");//images/mines2.png
 	sf::Texture number1T;
 	number1T.loadFromFile("images/number_1.png");
 	sf::Texture number2T;
@@ -45,11 +44,47 @@ Textures::Textures()
 	tileHiddenT.loadFromFile("images/tile_hidden.png");
 	sf::Texture tileRevealedT;
 	tileRevealedT.loadFromFile("images/tile_revealed.png");
-
-	textures = std::map<std::string, sf::Texture>();
+	sf::Texture digitsT;
+	digitsT.loadFromFile("images/digits.png");
+	/*
+	sf::Texture digits0T;
+	
+	textures["digits0"] = digits0T;
+	digits0T.loadFromFile("images/digits.png", sf::IntRect(0, 0, 21, 32));
+	sf::Texture digits1T;
+	textures["digits1"] = digits1T;
+	digits1T.loadFromFile("images/digits.png", sf::IntRect(21, 0, 21, 32));
+	sf::Texture digits2T;
+	textures["digits2"] = digits2T;
+	digits2T.loadFromFile("images/digits.png", sf::IntRect(42, 0, 21, 32));
+	sf::Texture digits3T;
+	textures["digits3"] = digits3T;
+	digits3T.loadFromFile("images/digits.png", sf::IntRect(63, 0, 21, 32));
+	sf::Texture digits4T;
+	textures["digits4"] = digits4T;
+	digits4T.loadFromFile("images/digits.png", sf::IntRect(84, 0, 21, 32));
+	sf::Texture digits5T;
+	textures["digits5"] = digits5T;
+	digits5T.loadFromFile("images/digits.png", sf::IntRect(105, 0, 21, 32));
+	sf::Texture digits6T;
+	textures["digits6"] = digits6T;
+	digits6T.loadFromFile("images/digits.png", sf::IntRect(126, 0, 21, 32));
+	sf::Texture digits7T;
+	textures["digits7"] = digits7T;
+	digits7T.loadFromFile("images/digits.png", sf::IntRect(147, 0, 21, 32));
+	sf::Texture digits8T;
+	textures["digits8"] = digits8T;
+	digits8T.loadFromFile("images/digits.png", sf::IntRect(168, 0, 21, 32));
+	sf::Texture digits9T;
+	textures["digits9"] = digits9T;
+	digits9T.loadFromFile("images/digits.png", sf::IntRect(189, 0, 21, 32));
+	sf::Texture digitsDT;
+	digitsDT.loadFromFile("images/digits.png", sf::IntRect(210, 0, 21, 32));
+	textures["digitsD"] = digitsDT;
+	
+	*/
 
 	textures["debug"] = debugT;
-	textures["digits"] = digitsT;
 	textures["faceHappy"] = faceHappyT;
 	textures["faceLose"] = faceLoseT;
 	textures["faceWin"] = faceWinT;
@@ -68,6 +103,17 @@ Textures::Textures()
 	textures["test3"] = test3T;
 	textures["tileHidden"] = tileHiddenT;
 	textures["tileRevealed"] = tileRevealedT;
+	textures["digits"] = digitsT;
+	/*textures["digits1"] = digits1T;
+	textures["digits2"] = digits2T;
+	textures["digits3"] = digits3T;
+	textures["digits4"] = digits4T;
+	textures["digits5"] = digits5T;
+	textures["digits6"] = digits6T;
+	textures["digits7"] = digits7T;
+	textures["digits8"] = digits8T;
+	textures["digits9"] = digits9T;
+	//textures["digitsD"] = digitsDT;*/
 }
 
 

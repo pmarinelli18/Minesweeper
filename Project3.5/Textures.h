@@ -10,4 +10,11 @@ public:
 	Textures();
 	~Textures();
 };
+class TexturesRect
+{
+	public:
+		std::map<std::string, sf::Texture>  textures;
+		//TexturesRect();
+		//~TexturesRect();
+};
 

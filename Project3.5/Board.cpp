@@ -78,12 +78,16 @@ Tile* Board::getTile(int column, int row)
 }
 void Board::resetBoard()
 {
+	std::cout << "Reseting Board!!\n";
+	gameState = 0;
+	showingBomb = 0;
+	flags = 0;
+	numBombs = 50;
 	for (int i = 0; i < 25; i++)
 	{
 		for (int j = 0; j < 16; j++)
 		{
-			gameState = 0;
-			showingBomb = 0;
+			
 			array2D[i][j].setIsShown(0);
 			array2D[i][j].setIsFlag(0);
 			array2D[i][j].setIsMine(0);
@@ -148,6 +152,7 @@ void Board::resetBoard()
 }
 void Board::showBombs()
 {
+	std::cout << "Toggling Bombs\n";
 	showingBomb = !showingBomb;
 	for (int i = 0; i < 25; i++)
 	{
@@ -162,6 +167,7 @@ void Board::showBombs()
 }
 void Board::loadGame(std::string filename)
 {
+	std::cout << "Loading Board!!\n";
 	for (int i = 0; i < 25; i++)
 	{
 		for (int j = 0; j < 16; j++)
@@ -178,6 +184,8 @@ void Board::loadGame(std::string filename)
 	std::ifstream inFS(filename);
 	if (inFS.is_open())
 	{
+		flags = 0;
+		numBombs = 0;
 		std::string mineValue;
 		bool mineValueBool;
 		for (int i = 0; i < 16; i++)
@@ -189,9 +197,10 @@ void Board::loadGame(std::string filename)
 				mineValueBool = (int)(mineValue.at(j)%48);
 				//std::getline(inFS, mineValue, ',')
 				array2D[j][i].setIsMine(mineValueBool);
+				if (mineValueBool) numBombs++;
 			}
 		}
-		std::cout << "hi";
+		//std::cout << "hi";
 	}
 	for (int i = 0; i < 25; i++)
 	{
@@ -235,6 +244,49 @@ void Board::loadGame(std::string filename)
 		}
 	}
 	//std::cout << "hi";
+}
+bool Board::checkWin()
+{
+	bool flag = true;
+	for (int i = 0; i < 25; i++)
+	{
+		for (int j = 0; j < 16; j++)
+		{/*
+			if (array2D[i][j].getIsMine() && array2D[i][j].getIsFlag())
+			{
+			}
+			else if (array2D[i][j].getIsMine() && !array2D[i][j].getIsShown())
+			{
+			}
+			
+			else */if (array2D[i][j].getIsMine() || array2D[i][j].getIsShown())
+			{
+				//flag = false;
+			}
+			else
+			{
+				flag = false;
+			}
+			//if (!array2D[i][j].getIsMine() || !array2D[i][j].getIsFlag() || !array2D[i][j].getIsShown())
+			//{
+			//	flag = false;
+			//}
+		}
+	}
+	if (flag)
+	{
+		for (int i = 0; i < 25; i++)
+		{
+			for (int j = 0; j < 16; j++)
+			{
+				if (array2D[i][j].getIsMine())
+				{
+					array2D[i][j].setIsFlag(true);
+				}
+			}
+		}
+	}
+	return flag;
 }
 Board::~Board()
 {
